@@ -8,13 +8,13 @@ var helpers = require("../utils/helpers");
 var Main = React.createClass({
 
   getInitialState: function() {
-    return { savedArticles: "" };
+    return {savedArticles: ""};
   },
 
   // When this component mounts, get all saved articles from our db
   componentDidMount: function() {
     helpers.getSaved().then(function(articleData) {
-      this.setState({ savedArticles: articleData.data });
+      this.setState({savedArticles: articleData.data});
       console.log("saved results", articleData.data);
     }.bind(this));
   },
@@ -29,7 +29,7 @@ var Main = React.createClass({
 
       // Get the revised list!
       helpers.getSaved().then(function(articleData) {
-        this.setState({ savedArticles: articleData.data });
+        this.setState({savedArticles: articleData.data});
         console.log("saved results", articleData.data);
       }.bind(this));
 

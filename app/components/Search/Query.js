@@ -6,11 +6,7 @@ var Query = React.createClass({
 
   // Here we set initial variables for the component to be blanks
   getInitialState: function() {
-    return {
-      search: "",
-      start: "",
-      end: ""
-    };
+    return {search: "", start: "", end: ""};
   },
 
   // Whenever we detect ANY change in the textbox, we register it.
@@ -42,7 +38,8 @@ var Query = React.createClass({
             <div className="panel panel-primary">
               <div className="panel-heading">
                 <h1 className="panel-title">
-                  <strong> Search A Topic of your Choosing</strong>
+                  <strong>
+                    Search A Topic of your Choosing</strong>
                 </h1>
               </div>
               <div className="panel-body">
@@ -50,45 +47,27 @@ var Query = React.createClass({
                 {/* Note how we associate the text-box inputs with the state values */}
                 <form onSubmit={this.handleSubmit}>
                   <div className="form-group">
-                    <h4 className=""><strong>Topic</strong></h4>
-                    <input
-                      type="text"
-                      value={this.state.search}
-                      className="form-control"
-                      id="search"
-                      onChange={this.handleChange}
-                      required
-                    />
+                    <h4 className="">
+                      <strong>Topic</strong>
+                    </h4>
+                    <input type="text" value={this.state.search} className="form-control" id="search" onChange={this.handleChange} required/>
 
-                    <h4><strong>Start Year</strong></h4>
-                    <input
-                      type="number"
-                      value={this.state.start}
-                      className="form-control"
-                      id="start"
-                      onChange={this.handleChange}
-                      required
-                    />
+                    <h4>
+                      <strong>Start Year</strong>
+                    </h4>
+                    <input type="number" value={this.state.start} className="form-control" id="start" onChange={this.handleChange} required/>
 
-                    <h4><strong>End Year</strong></h4>
+                    <h4>
+                      <strong>End Year</strong>
+                    </h4>
 
-                    <input
-                      type="number"
-                      value={this.state.end}
-                      className="form-control"
-                      id="end"
-                      onChange={this.handleChange}
-                      required
-                    />
+                    <input type="number" value={this.state.end} className="form-control" id="end" onChange={this.handleChange} required/>
 
                   </div>
 
                   {/* Here we create the onClick event that triggers the HandleSubmit */}
                   <div className="pull-right">
-                    <button
-                      type="submit"
-                      className="btn btn-info"
-                    >
+                    <button type="submit" className="btn btn-info">
                       <h4>Submit</h4>
                     </button>
                   </div>

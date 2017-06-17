@@ -5,7 +5,7 @@ var axios = require("axios");
 var APIKey = "e6155b0f85574901ab7115f47cc4e3f2";
 
 var helpers = {
-    // This will run our query.
+  // This will run our query.
   runQuery: function(term, start, end) {
     // Adjust to get search terms in proper format
     var formattedTerm = term.trim();
@@ -21,28 +21,29 @@ var helpers = {
         "begin_date": formattedStart,
         "end_date": formattedEnd
       }
-    })
-    .then(function(results) {
+    }).then(function(results) {
       console.log("Axios Results", results.data.response);
       return results.data.response;
     });
   },
   // This will return any saved articles from database
   getSaved: function() {
-    return axios.get("/api/saved")
-      .then(function(results) {
-        console.log("axios results", results);
-        return results;
-      });
-  },     
+    return axios.get("/api/saved").then(function(results) {
+      console.log("axios results", results);
+      return results;
+    });
+  },
   // This will save new articles to database
   postSaved: function(title, date, url) {
-    var newArticle = { title: title, date: date, url: url };
-    return axios.post("/api/saved", newArticle)
-      .then(function(response) {
-        console.log("axios results", response.data._id);
-        return response.data._id;
-      });
+    var newArticle = {
+      title: title,
+      date: date,
+      url: url
+    };
+    return axios.post("/api/saved", newArticle).then(function(response) {
+      console.log("axios results", response.data._id);
+      return response.data._id;
+    });
   },
   // This will remove saved articles from database
   deleteSaved: function(title, data, url) {
@@ -52,13 +53,11 @@ var helpers = {
         "data": data,
         "url": url
       }
-    })
-    .then(function(results) {
+    }).then(function(results) {
       console.log("axios results", results);
       return results;
     });
   }
 };
-
 
 module.exports = helpers;

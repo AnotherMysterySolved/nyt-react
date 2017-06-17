@@ -18,17 +18,14 @@ var Saved = require("../components/Saved");
 
 // Export Routes
 module.exports = (
-  // High level component is the Router component.
-  <Router history={browserHistory}>
-    <Route path="/" component={Main}>
+// High level component is the Router component. < Router history = {
+  browserHistory
+} > <Route path="/" component={Main}>
 
-      {/* If user selects Search or Saved show the appropriate component */}
-      <Route path="Search" component={Search} />
-      <Route path="Saved" component={Saved} />
+  {/* If user selects Search or Saved show the appropriate component */}
+  <Route path="Search" component={Search}/>
+  <Route path="Saved" component={Saved}/> {/* If user selects any other path... we get the Home Route */}
+  <IndexRoute component={Search}/>
 
-      {/* If user selects any other path... we get the Home Route */}
-      <IndexRoute component={Search} />
-
-    </Route>
-  </Router>
+</Route> < /Router>
 );

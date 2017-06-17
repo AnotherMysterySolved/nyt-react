@@ -11,16 +11,18 @@ var Search = React.createClass({
   // Set the initial state variables which allows for maniuplation by child components
   // Result state where data will be held from results
   getInitialState: function() {
-    return {
-      results: {}
-    };
+    return {results: {}};
   },
 
   // Function will be passed down to child components so they can change the "parent"
   // Pass method to query component in order to change the main component to perform new search
   setQuery: function(newQuery, newStart, newEnd) {
     helpers.runQuery(newQuery, newStart, newEnd).then(function(data) {
-      this.setState({ results: { docs: data.docs } });
+      this.setState({
+        results: {
+          docs: data.docs
+        }
+      });
     }.bind(this));
   },
 
@@ -32,9 +34,8 @@ var Search = React.createClass({
       <div className="main-container">
 
         {/* Note how we pass the setQuery function to enable Query to perform searches */}
-        <Query updateSearch={this.setQuery} />
-        {/* Note how we pass in the results into this component */}
-        <Results results={this.state.results} />
+        <Query updateSearch={this.setQuery}/> {/* Note how we pass in the results into this component */}
+        <Results results={this.state.results}/>
       </div>
     );
   }
